@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
 
 const Home = () => {
-    console.log()
     return (
         <div className="card text-center">
             <div className="card-header">
@@ -14,7 +13,7 @@ const Home = () => {
                 <h5 className="card-title">Special title treatment</h5>
                 <p className="card-text"></p>
                 <Link to="/items"><Button variant="primary">Create New Order Request</Button></Link><br /><br />
-                <a href="/items/new" className="btn btn-danger">Add New Item</a><br /><br />
+                <Link to="/items/new"> <Button variant="primary">Add New Item</Button></Link><br /><br />
                 <a href="/lists" className="btn btn-danger">View Order History</a><br /><br />
             </div>
             <div className="card-footer text-muted">
