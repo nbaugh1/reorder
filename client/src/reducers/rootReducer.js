@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import listsReducer from './listsReducer';
+import ordersReducer from './ordersReducer';
 import itemsReducer from './itemsReducer';
 
 const rootReducer = combineReducers({
-    listsReducer,
+    ordersReducer,
     itemsReducer
 })
 

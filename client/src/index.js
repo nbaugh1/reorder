@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux';
-// import rootReducer from './reducers/rootReducer.js'
+import rootReducer from './reducers/rootReducer.js'
 import App from './App';
-import thunk from 'react-thunk'
+import thunk from 'redux-thunk'
 
 const store = createStore(
-    // rootReducer,
+    rootReducer,
     compose(
         applyMiddleware(thunk),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
