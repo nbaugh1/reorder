@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Col, InputGroup, Button, FormControl } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
+
 
 
 class OnHandInputForm extends Component {
@@ -7,7 +8,9 @@ class OnHandInputForm extends Component {
         super(props);
 
         this.state = {
-            onHand: 0
+            onHand: 0,
+            amountNeeded: 0,
+            itemsNeeded: []
         }
     }
 
@@ -23,20 +26,25 @@ class OnHandInputForm extends Component {
         e.preventDefault();
         console.log(this.state.onHand)
         console.log(this.props.name)
+        this.setState({ amountNeeded: this.props.par - this.state.onHand })
+
     }
 
     render() {
         return (
             <form id="onHand-form" onSubmit={this.handleSubmit}>
-                <Col s={2} m={2} l={2}>
 
-                    <div className="input-field">
-                        <input type="text" name="onHand" id="onHand" value={this.state.onHand} onChange={this.handleChange} />
-                        <label htmlFor="onHand">On Hand</label>
-                    </div>
-                    <input type="submit" value="Submit" className="btn-primary" />
+
+                <div className="input-field">
+                    <label htmlFor="onHand">On Hand</label>
+                    <input type="text" name="onHand" id="onHand" value={this.state.onHand} onChange={this.handleChange} />
+                </div>
+                <input type="submit" value="Submit" className="btn-primary" />
+                <Col>
+                    <h6>{this.state.amountNeeded}</h6>
                 </Col>
             </form>
+
         )
     }
 }

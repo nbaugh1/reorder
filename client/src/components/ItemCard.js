@@ -6,7 +6,7 @@ import OnHandInputForm from './OnHandInputForm'
 const ItemCard = ({ name, par, onHand, quantity }) => {
     return (
 
-        <Card bg="dark">
+        <Card>
             <Card.Body>
                 <Row>
                     <Col>
@@ -16,6 +16,7 @@ const ItemCard = ({ name, par, onHand, quantity }) => {
                         <OnHandInputForm 
                             onHand={ onHand }
                             name={ name }
+                            par={par}
                             />
                     </Col>
                     <Col>
