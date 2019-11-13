@@ -1,0 +1,4 @@
+class Order < ActiveRecord::Migration[5.2]
+  def change
+  end
+end
