@@ -1,11 +1,12 @@
-const initialState = {
+
+
+export const itemsReducer = (state={
+    
     items: [],
     loading: false,
-    itemsLoaded: false,
+    itemsLoaded: false
 
-}
-
-const itemsReducer = (state={initialState}, action) => {
+}, action) => {
     switch(action.type) {
         case "GET_ITEMS":
             return {
@@ -27,4 +28,3 @@ const itemsReducer = (state={initialState}, action) => {
     }
 }
 
-export default itemsReducer

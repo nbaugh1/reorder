@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export const Home = () => {
+
+const Home = () => {
     console.log()
     return (
         <div className="card text-center">

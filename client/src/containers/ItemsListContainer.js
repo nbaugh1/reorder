@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getItems } from '../actions/index'
-// import ItemCard from '../components/ItemCard'
+import ItemCard from '../components/ItemCard'
 
 
 class ItemsListContainer extends Component {
     componentDidMount() {
         if (!this.props.itemsLoaded) {
-            debugger
+            this.props.getItems();
         }
     }
 
@@ -15,9 +15,18 @@ class ItemsListContainer extends Component {
 
     render() {
         if (!this.props.loading) {
+            const items = this.props.items.map((item, i) => (
+                <ItemCard
+                    name={ item.name }
+                    par={ item.par }
+                    onHand={ item.onHand }
+                    quantity={ item.quantity }
+                    />
+            ))
+            
             return(
                 <div className="items-list">
-                    <h1>test 1</h1>
+                    <h1> { items } </h1>
                 </div>
             )} else {
                 return (

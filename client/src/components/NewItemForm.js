@@ -36,11 +36,11 @@ class Form extends Component {
             <form id="item-form" onSubmit={this.handleSubmit}>
 
                 <div className="input-field">
+                    <label htmlFor="name">Name: </label>
                     <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
-                    <label htmlFor="name">Name</label>
                 </div>
 
-                <input type="submit" value="Create Item" className="btn" />
+                <input type="submit" value="Create Item" className="btn-primary" />
             </form>
         )
     }
