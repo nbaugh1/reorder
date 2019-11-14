@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3001'
 
-export const updateOrder = (item) =>{
+export const updateOrder = (item) => {
     return dispatch => {
         dispatch({ type: "UPDATE_ORDER", item })
     }
@@ -32,6 +32,24 @@ export const addItem = (item, history) => {
                 history.push('/items')
             })
     }
+
 }
 
+export const addOrder = (order, history) => {
+    return dispatch => {
+        return fetch(baseUrl + '/orders', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ order })
+        })
+            .then(resp => resp.json())
+            .then(order => {
+                dispatch({ type: "ADD_ORDER", order })
+                history.push('/orders')
+            })
+    }
+}
 

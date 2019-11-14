@@ -23,6 +23,12 @@ export const ordersReducer = (state ={
                 loading: false,
                 ordersLoaded: true
             }
+
+        case "ADD_ORDER":
+            return {
+                ...state,
+                orders: [...state.orders, action.order]
+            }
         default:
             return state;
     }

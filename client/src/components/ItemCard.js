@@ -20,11 +20,9 @@ const ItemCard = ({ name, par, onHand, quantity }) => {
                             />
                     </Col>
                     <Col>
-                        <h6> {par}</h6>
+                        <h6>Par: {par}</h6>
                     </Col>
-                    <Col>
-                        <h6> {par}</h6>
-                    </Col>
+                    
                 </Row>
             </Card.Body>
         </Card>

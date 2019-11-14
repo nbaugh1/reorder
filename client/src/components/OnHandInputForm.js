@@ -36,6 +36,7 @@ class OnHandInputForm extends Component {
         })
         this.props.updateOrder({[this.props.name]: needed})
     }
+    
     render() {
         return (
             <form id="onHand-form" onSubmit={this.handleSubmit}>

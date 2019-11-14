@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Form from './components/NewItemForm';
 import ItemsListContainer from './containers/ItemsListContainer';
 import ReviewOrder from './components/ReviewOrder'
-
+import OrderHistory from './components/OrderHistory'
 class App extends Component {
   
   render() {
@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/items/new" component={ Form } />
             <Route exact path="/items" component={ ItemsListContainer } />
             <Route exact path="/orders/new" component={ ReviewOrder } />
-            {/* <Route path="/orders" component={ ListsHistory } /> */}
+            <Route exact path="/orders" component={ OrderHistory } />
           </Switch>
         </div>
       </Router>
