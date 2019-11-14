@@ -35,6 +35,17 @@ export const addItem = (item, history) => {
 
 }
 
+export const getOrders = () => {
+    return dispatch => {
+        dispatch({ type: "LOADING_ORDERS" })
+        return fetch(baseUrl + '/orders')
+            .then(resp => resp.json())
+            .then(ordersJSON => {
+                return dispatch({ type: 'GET_ORDERS', orders: ordersJSON })
+            })
+    }
+}
+
 export const addOrder = (order, history) => {
     return dispatch => {
         return fetch(baseUrl + '/orders', {
@@ -50,6 +61,7 @@ export const addOrder = (order, history) => {
                 dispatch({ type: "ADD_ORDER", order })
                 history.push('/orders')
             })
+
     }
 }
 

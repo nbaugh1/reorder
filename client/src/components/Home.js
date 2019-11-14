@@ -7,10 +7,10 @@ const Home = () => {
     return (
         <div className="card text-center">
             <div className="card-header">
-                Order Up
+                ReOrder
             </div>
             <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
+                <h5 className="card-title"></h5>
                 <p className="card-text"></p>
                 <Link to="/items"><Button variant="primary">Create New Order Request</Button></Link><br /><br />
                 <Link to="/items/new"> <Button variant="primary">Add New Item</Button></Link><br /><br />

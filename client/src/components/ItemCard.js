@@ -10,7 +10,7 @@ const ItemCard = ({ name, par, onHand, quantity }) => {
             <Card.Body>
                 <Row>
                     <Col>
-                        <h6>{name}</h6>
+                        <h3>{name}</h3>
                     </Col>
                     <Col>
                         <OnHandInputForm 

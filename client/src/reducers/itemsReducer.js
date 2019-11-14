@@ -3,7 +3,6 @@ export const itemsReducer = (state={
     items: [],
     loading: false,
     itemsLoaded: false,
-    neededItems: [],
     onHand: 0
 
 

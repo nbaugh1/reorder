@@ -10,7 +10,8 @@ class ReviewOrder extends Component {
         super(props)
 
         this.state = {
-            name: ""
+            name: "",
+            neededItems: {}
         }
 
     }
@@ -27,6 +28,8 @@ class ReviewOrder extends Component {
     
     handleSubmit = e => {
         e.preventDefault();
+        this.setState({ neededItems: this.state.neededItems})
+        debugger
         this.props.addOrder(this.state, this.props.history)
     }
 

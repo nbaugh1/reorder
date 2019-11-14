@@ -27,7 +27,14 @@ export const ordersReducer = (state ={
         case "ADD_ORDER":
             return {
                 ...state,
-                orders: [...state.orders, action.order]
+                orders: [...state.orders, action.order],
+                neededItems: []
+            }
+
+        case "LOADING_ORDERS":
+            return{
+                ...state,
+                loading: true
             }
         default:
             return state;
