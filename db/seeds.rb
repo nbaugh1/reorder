@@ -11,6 +11,6 @@ order1 = Order.create(delivery_date: "10/10/19", name: "Produce")
 order2 = Order.create(delivery_date: "10/11/19", name: "Produce")
 
 
-item1 = Item.create(name: "apples1", par: 2)
-item2 = Item.create(name: "pears", par: 24)
-item3 = Item.create(name: "avacados", par: 8)
+item1 = Item.create(name: "apples1", par: 2, on_hand: 0)
+item2 = Item.create(name: "pears", par: 24, on_hand: 0)
+item3 = Item.create(name: "avacados", par: 8, on_hand: 0)

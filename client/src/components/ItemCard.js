@@ -16,7 +16,7 @@ const ItemCard = ({ name, par, onHand, quantity }) => {
                         <OnHandInputForm 
                             onHand={ onHand }
                             name={ name }
-                            par={par}
+                            par={ par }
                             />
                     </Col>
                     <Col>

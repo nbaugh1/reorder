@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 
-import { addItem } from '../actions';
+import { addItem } from '../actions/index';
 
 class Form extends Component {
     constructor(props) {
@@ -27,7 +27,6 @@ class Form extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
         this.props.addItem(this.state, this.props.history)
     }
 
@@ -38,6 +37,11 @@ class Form extends Component {
                 <div className="input-field">
                     <label htmlFor="name">Name: </label>
                     <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange} />
+                </div>
+
+                <div className="input-field">
+                <label htmlFor="par">Par: </label>
+                <input type="number" name="par" id="par" value={this.state.par} onChange={this.handleChange} />
                 </div>
 
                 <input type="submit" value="Create Item" className="btn-primary" />

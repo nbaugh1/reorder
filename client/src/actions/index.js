@@ -1,5 +1,10 @@
 const baseUrl = 'http://localhost:3001'
 
+export const updateOrder = (item) =>{
+    return dispatch => {
+        dispatch({ type: "UPDATE_ORDER", item })
+    }
+}
 export const getItems = () => {
     return dispatch => {
         dispatch({ type: "LOADING_ITEMS" })
@@ -28,3 +33,5 @@ export const addItem = (item, history) => {
             })
     }
 }
+
+

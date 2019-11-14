@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getItems } from '../actions/index'
 import ItemCard from '../components/ItemCard'
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 
 class ItemsListContainer extends Component {
@@ -11,36 +13,46 @@ class ItemsListContainer extends Component {
         }
     }
 
-
+    handleSubmitOrder = e => {
+        e.preventDefault();
+    }
 
     render() {
+
         if (!this.props.loading) {
             const items = this.props.items.map((item, i) => (
                 <ItemCard
-                    name={ item.name }
-                    par={ item.par }
-                    onHand={ item.onHand }
-                    quantity={ item.quantity }
-                    />
+                    name={item.name}
+                    par={item.par}
+                    onHand={item.onHand}
+                    quantity={item.quantity}
+                />
             ))
-            
-            return(
+    
+            return (
+                // <div className="items-list">
+                <form id="order-form" onSubmit={this.handleSubmitOrder}>
+                    <h1> {items} </h1>
+
+                    <Link to="/orders/new"><Button type="submit" variant="secondary" size="lg" block>Review Order</Button></Link>
+                </form>
+                // </div>
+
+            )
+        } else {
+            return (
                 <div className="items-list">
-                    <h1> { items } </h1>
+                    <h1>Loading...</h1>
                 </div>
-            )} else {
-                return (
-                    <div className="items-list">
-                        <h1>Loading...</h1>
-                    </div>
-                )
-            }
+            )
+        }
     }
 }
 
 
 const mapStateToProps = store => {
     return {
+        neededItems: store.ordersReducer.neededItems,
         items: store.itemsReducer.items,
         loading: store.itemsReducer.loading,
         itemsLoaded: store.itemsReducer.itemsLoaded

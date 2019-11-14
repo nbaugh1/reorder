@@ -1,10 +1,11 @@
-
-
 export const itemsReducer = (state={
     
     items: [],
     loading: false,
-    itemsLoaded: false
+    itemsLoaded: false,
+    neededItems: [],
+    onHand: 0
+
 
 }, action) => {
     switch(action.type) {
@@ -13,7 +14,7 @@ export const itemsReducer = (state={
                 ...state,
                 items: action.items,
                 loading: false,
-                itemsLoaded: true
+                itemsLoaded: true,
             }
             
 
@@ -21,6 +22,12 @@ export const itemsReducer = (state={
             return{
                 ...state,
                 loading: true
+            }
+        
+        case "ADD_ITEM":
+            return{
+                ...state,
+                items: [...state.items, action.item]
             }
             
             default:

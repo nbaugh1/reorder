@@ -1,52 +1,60 @@
 import React, { Component } from 'react';
-import { Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { updateOrder } from '../actions'
+
+
 
 
 
 class OnHandInputForm extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            onHand: 0,
+            itemsNeeded: [],
             amountNeeded: 0,
-            itemsNeeded: []
+            onHand: 0
         }
+    }
+
+    componentDidMount() {
+        
     }
 
     handleChange = e => {
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
+        
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state.onHand)
-        console.log(this.props.name)
-        this.setState({ amountNeeded: this.props.par - this.state.onHand })
-
+        const needed = this.props.par - this.state.onHand
+        this.setState({
+            amountNeeded: needed
+        })
+        this.props.updateOrder({[this.props.name]: needed})
     }
-
     render() {
         return (
             <form id="onHand-form" onSubmit={this.handleSubmit}>
-
-
                 <div className="input-field">
                     <label htmlFor="onHand">On Hand</label>
-                    <input type="text" name="onHand" id="onHand" value={this.state.onHand} onChange={this.handleChange} />
+                    <input type="text" name="onHand" id="onHand" value={this.state.onHand} onChange={ this.handleChange }/>
                 </div>
                 <input type="submit" value="Submit" className="btn-primary" />
-                <Col>
-                    <h6>{this.state.amountNeeded}</h6>
-                </Col>
+                <p>Amount Needed: { this.state.amountNeeded }</p>
             </form>
-
         )
     }
 }
 
-export default OnHandInputForm
+const mapStateToProps = store => {
+    return {
+        neededItems: store.ordersReducer.neededItems,
+        onHand: store.itemsReducer.onHand
+    }
+}
+
+export default connect(mapStateToProps, { updateOrder })(OnHandInputForm);
