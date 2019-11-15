@@ -29,14 +29,14 @@ class ReviewOrder extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.setState({ neededItems: this.state.neededItems})
-        debugger
         this.props.addOrder(this.state, this.props.history)
     }
 
     render() {
-        const listItemsNames = this.props.neededItems.map((item) => (
+        
+        const listItems = this.props.neededItems.forEach((item) => (
             // <NeededItem  item={ item }/>
-            Object.keys(item)
+            console.log(Object.keys(item), Object.values(item))
         ))
 
         const listItemAmounts = this.props.neededItems.map((item) => (
@@ -44,7 +44,15 @@ class ReviewOrder extends Component {
             Object.values(item)
         ))
 
+        const listItemsNames = this.props.neededItems.map((item) => (
+            // <NeededItem  item={ item }/>
+            Object.keys(item)
+
+        ))
+
         return (
+
+
             <form id="order-review" onSubmit={this.handleSubmit}>
                 <h1>{ listItemsNames } - { listItemAmounts }</h1>
                 <label htmlFor="order-name">Order Title: </label>
