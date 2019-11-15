@@ -18,7 +18,6 @@ class ItemsListContainer extends Component {
     }
 
     render() {
-
         if (!this.props.loading) {
             const items = this.props.items.map((item, i) => (
                 <ItemCard
@@ -30,14 +29,10 @@ class ItemsListContainer extends Component {
             ))
     
             return (
-                // <div className="items-list">
                 <form id="order-form" onSubmit={this.handleSubmitOrder}>
                     <h1> {items} </h1>
-
                     <Link to="/orders/new"><Button type="submit" variant="secondary" size="lg" block>Review Order</Button></Link>
                 </form>
-                // </div>
-
             )
         } else {
             return (
