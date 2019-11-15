@@ -8,8 +8,8 @@ const Nav = () => {
             <Row>
                 <Col>
                     <Link to='/'><Navbar.Brand>ReOrder</Navbar.Brand></Link>
-                </Col>
-                <Col>
+                {/* </Col>
+                <Col> */}
                     <Link to='/'><Button>Home</Button></Link>
                 </Col>
             </Row>

@@ -4,28 +4,24 @@ import NavBarContainer from './containers/NavBarContainer';
 import Home from './components/Home';
 import Form from './components/NewItemForm';
 import ItemsListContainer from './containers/ItemsListContainer';
-import ReviewOrder from './components/ReviewOrder'
+import ReviewOrderContainer from './containers/ReviewOrderContainer'
 import OrderHistory from './components/OrderHistory'
 class App extends Component {
-  
+
   render() {
-  
     return (
       <Router>
-        
         <div className="container">
-        <NavBarContainer />
-
-        <br />
-        <br />
-        <br />
-
+          <NavBarContainer />
+          <br />
+          <br />
+          <br />
           <Switch>
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/items/new" component={ Form } />
-            <Route exact path="/items" component={ ItemsListContainer } />
-            <Route exact path="/orders/new" component={ ReviewOrder } />
-            <Route exact path="/orders" component={ OrderHistory } />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/items/new" component={Form} />
+            <Route exact path="/items" component={ItemsListContainer} />
+            <Route exact path="/orders/new" component={ReviewOrderContainer} />
+            <Route exact path="/orders" component={OrderHistory} />
           </Switch>
         </div>
       </Router>

@@ -16,16 +16,11 @@ class OnHandInputForm extends Component {
         }
     }
 
-    componentDidMount() {
-        
-    }
-
     handleChange = e => {
         const { name, value } = e.target;
         this.setState({
             [name]: value
         })
-        
     }
 
     handleSubmit = e => {
@@ -53,9 +48,8 @@ class OnHandInputForm extends Component {
 
 const mapStateToProps = store => {
     return {
-        neededItems: store.ordersReducer.neededItems,
-        onHand: store.itemsReducer.onHand
+        neededItems: store.ordersReducer.neededItems
     }
 }
 
-export default connect(mapStateToProps, { updateOrder })(OnHandInputForm);
+export default connect(mapStateToProps, { updateOrder })(OnHandInputForm)

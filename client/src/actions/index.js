@@ -32,7 +32,6 @@ export const addItem = (item, history) => {
                 history.push('/items')
             })
     }
-
 }
 
 export const getOrders = () => {
@@ -59,9 +58,8 @@ export const addOrder = (order, history) => {
             .then(resp => resp.json())
             .then(order => {
                 dispatch({ type: "ADD_ORDER", order })
-                history.push('/orders')
+                history.push('/')
             })
-
     }
 }
 

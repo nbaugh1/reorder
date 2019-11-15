@@ -9,7 +9,7 @@ class OrderHistory extends Component {
         }
     }
     render() {
-        return(
+        return (
             <div>
                 <h6>TEST</h6>
             </div>
@@ -19,7 +19,7 @@ class OrderHistory extends Component {
 
 const mapStateToProps = store => {
     return {
-    orders: store.ordersReducer.orders
+        orders: store.ordersReducer.orders
     }
 }
 

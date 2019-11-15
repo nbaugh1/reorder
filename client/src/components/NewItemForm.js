@@ -38,8 +38,8 @@ class Form extends Component {
                 </div>
 
                 <div className="input-field">
-                <label htmlFor="par">Par: </label>
-                <input type="number" name="par" id="par" value={this.state.par} onChange={this.handleChange} />
+                    <label htmlFor="par">Par: </label>
+                    <input type="number" name="par" id="par" value={this.state.par} onChange={this.handleChange} />
                 </div>
 
                 <input type="submit" value="Create Item" className="btn-primary" />

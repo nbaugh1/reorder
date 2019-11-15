@@ -1,13 +1,12 @@
-export const itemsReducer = (state={
-    
+
+
+export const itemsReducer = (state = {
     items: [],
     loading: false,
     itemsLoaded: false,
     onHand: 0
-
-
 }, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case "GET_ITEMS":
             return {
                 ...state,
@@ -15,22 +14,18 @@ export const itemsReducer = (state={
                 loading: false,
                 itemsLoaded: true,
             }
-            
-
         case "LOADING_ITEMS":
-            return{
+            return {
                 ...state,
                 loading: true
             }
-        
         case "ADD_ITEM":
-            return{
+            return {
                 ...state,
                 items: [...state.items, action.item]
             }
-            
-            default:
-                return state;
+        default:
+            return state;
     }
 }
 

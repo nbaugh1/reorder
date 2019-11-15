@@ -1,43 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import NeededItem from './NeededItem'
+import NeededItem from '../components/NeededItem'
 import { Button } from 'react-bootstrap'
-import { addOrder } from '../actions' 
+import { addOrder } from '../actions'
 
 
-class ReviewOrder extends Component {
+class ReviewOrderContainer extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             name: "",
-            neededItems: {}
+            neededItems: []
         }
-
-    }
-    componentDidMount() {
     }
 
     handleChange = e => {
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
     }
-    
+
     handleSubmit = e => {
         e.preventDefault();
-        this.setState({ neededItems: this.state.neededItems})
+        this.setState({ neededItems: this.state.neededItems })
         this.props.addOrder(this.state, this.props.history)
     }
 
     render() {
-        
-        const listItems = this.props.neededItems.forEach((item) => (
-            // <NeededItem  item={ item }/>
-            console.log(Object.keys(item), Object.values(item))
-        ))
+
+
 
         const listItemAmounts = this.props.neededItems.map((item) => (
             // <NeededItem  item={ item }/>
@@ -50,14 +43,18 @@ class ReviewOrder extends Component {
 
         ))
 
+        const listItems = this.props.neededItems.map((item, i) => (
+            <NeededItem
+                name={Object.keys(item)}
+                amount={Object.values(item)}
+            />
+        ))
+
         return (
-
-
-            <form id="order-review" onSubmit={this.handleSubmit}>
-                <h1>{ listItemsNames } - { listItemAmounts }</h1>
+            <form id="order-review" onSubmit={ this.handleSubmit }>
+                <h1>{ listItems } </h1>
                 <label htmlFor="order-name">Order Title: </label>
-                <input type="text" name="name" id="order-name" value={this.state.name} onChange={this.handleChange} />
-
+                <input type="text" name="name" id="order-name" value={ this.state.name } onChange={ this.handleChange } />
                 <Button type="submit">
                     Save
                 </Button>
@@ -71,4 +68,4 @@ const mapStateToProps = store => {
     }
 }
 
-export default connect(mapStateToProps, { addOrder })(ReviewOrder)
+export default connect(mapStateToProps, { addOrder })(ReviewOrderContainer)
