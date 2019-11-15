@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/items/new" component={Form} />
             <Route exact path="/items" component={ItemsListContainer} />
             <Route exact path="/orders/new" component={ReviewOrderContainer} />
-            <Route exact path="/orders" component={OrderHistory} />
+            {/* <Route exact path="/orders" component={OrderHistory} /> */}
           </Switch>
         </div>
       </Router>
