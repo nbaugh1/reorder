@@ -14,7 +14,7 @@ ReOrder is built with a Ruby on Rails backend API and a React/Redux based fronte
 
 - to create the database run `$ rake db:create`, then `$rake db:migrate`, (optionally run `$ rake db:seed` to seed your database
 
-- run `$rake start` to launch your server and open the app in your browser 
+- run `$ rake start` to launch your server and open the app in your browser 
 
 
 Alternatively, navigate to https://reorder-mod-5.herokuapp.com/ to use ReOrder online. 
