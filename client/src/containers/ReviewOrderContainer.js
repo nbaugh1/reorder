@@ -30,19 +30,6 @@ class ReviewOrderContainer extends Component {
 
     render() {
 
-
-
-        const listItemAmounts = this.props.neededItems.map((item) => (
-            // <NeededItem  item={ item }/>
-            Object.values(item)
-        ))
-
-        const listItemsNames = this.props.neededItems.map((item) => (
-            // <NeededItem  item={ item }/>
-            Object.keys(item)
-
-        ))
-
         const listItems = this.props.neededItems.map((item, i) => (
             <NeededItem
                 name={Object.keys(item)}
