@@ -16,7 +16,7 @@ const Home = () => {
                 <Link to="/items/new"> <Button variant="primary">Add New Item</Button></Link><br /><br />
             </div>
             <div className="card-footer">
-                test
+                
             </div>
         </div>
     )
