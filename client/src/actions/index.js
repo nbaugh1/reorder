@@ -5,6 +5,7 @@ export const updateOrder = (item) => {
         dispatch({ type: "UPDATE_ORDER", item })
     }
 }
+
 export const getItems = () => {
     return dispatch => {
         dispatch({ type: "LOADING_ITEMS" })
@@ -13,6 +14,18 @@ export const getItems = () => {
             .then(itemsJSON => {
                 return dispatch({ type: 'GET_ITEMS', items: itemsJSON })
             })
+    }
+}
+
+export const updateItemName = (name) => {
+    return dispatch => {
+        dispatch({ type: "UPDATE_ITEM_NAME", name})
+    }
+}
+
+export const updateItemPar = (par) => {
+    return dispatch => {
+        dispatch({ type: "UPDATE_ITEM_PAR", par})
     }
 }
 
@@ -47,6 +60,7 @@ export const getOrders = () => {
 
 export const addOrder = (order, history) => {
     return dispatch => {
+        console.log("c")
         return fetch(baseUrl + '/orders', {
             method: "POST",
             headers: {
@@ -59,7 +73,9 @@ export const addOrder = (order, history) => {
             .then(order => {
                 dispatch({ type: "ADD_ORDER", order })
                 history.push('/')
+                console.log("d")
             })
+            
     }
 }
 

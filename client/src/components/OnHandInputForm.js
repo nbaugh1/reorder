@@ -29,7 +29,9 @@ class OnHandInputForm extends Component {
         this.setState({
             amountNeeded: needed
         })
+        
         this.props.updateOrder({[this.props.name]: needed})
+        
     }
     
     render() {

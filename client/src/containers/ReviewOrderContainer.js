@@ -25,7 +25,10 @@ class ReviewOrderContainer extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.setState({ neededItems: this.state.neededItems })
+        console.log("a")
         this.props.addOrder(this.state, this.props.history)
+        console.log("b")
+
     }
 
     render() {

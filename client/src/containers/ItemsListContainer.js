@@ -27,9 +27,11 @@ class ItemsListContainer extends Component {
                     quantity={item.quantity}
                 />
             ))
-    
+                debugger
             return (
                 <form id="order-form" onSubmit={this.handleSubmitOrder}>
+                
+                
                     <h1> {items} </h1>
                     <Link to="/orders/new"><Button type="submit" variant="secondary" size="lg" block>Review Order</Button></Link>
                 </form>
