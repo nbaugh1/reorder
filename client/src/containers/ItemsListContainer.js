@@ -27,7 +27,7 @@ class ItemsListContainer extends Component {
                     quantity={item.quantity}
                 />
             ))
-                debugger
+            
             return (
                 <form id="order-form" onSubmit={this.handleSubmitOrder}>
                 

@@ -1,35 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addItem, updateItemName, updateItemPar } from '../actions/index';
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 class NewItemFormContainer extends Component {
 
 
-    handleChange(e) {
+    handleChange( e ) {
         const { id, value } = e.target;
         e.preventDefault();
-        if (id === "name") {
-            this.props.updateItemName(value)
-        } else if (id === "par") {
-            this.props.updateItemPar(value)
+        if ( id === "name" ) {
+            this.props.updateItemName( value )
+        } else if ( id === "par" ) {
+            this.props.updateItemPar( value )
         }
     }
 
-    handleSubmit = e => {
+    handleSubmit = ( e ) => {
+
         e.preventDefault();
-        this.props.addItem(this.props, this.props.history)
+        const { name, par } = e.target 
+        const item = { name: name.value, par: par.value }
+        debugger
+        this.props.addItem( item, this.props.history )
     }
 
     render() {
         return (
-            <Form id="item-form" onSubmit={this.handleSubmit}>
+            <Form id="item-form" onSubmit={ this.handleSubmit }>
                 <Form.Group>
                     <Form.Label>Item Name: </Form.Label>
                     <Form.Control
                         as="input"
                         type="text"
-                        value={this.props.itemName}
+                        value={ this.props.itemName }
                         onChange={e => this.handleChange(e)}
                         id="name"
                     />
@@ -39,10 +43,12 @@ class NewItemFormContainer extends Component {
                     <Form.Control
                         as="input"
                         type="number"
-                        value={this.props.itemPar}
+                        value={ this.props.itemPar }
                         onChange={e => this.handleChange(e)}
                         id="par"
                     />
+                    <br />
+                    <Button type="submit">Save</Button>
                 </Form.Group>
                 
             </Form>
