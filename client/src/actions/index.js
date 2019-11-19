@@ -29,6 +29,18 @@ export const updateItemPar = (par) => {
     }
 }
 
+export const updateCurrentItem = (item) => {
+    return dispatch => {
+        dispatch({ type: "UPDATE_CURRENT_ITEM", item })
+    }
+}
+
+export const updateOnHand = (onHand) => {
+    return dispatch => {
+        dispatch({ type: "UPDATE_ON_HAND", onHand})
+    }
+}
+
 export const addItem = (item, history) => {
     return dispatch => {
         return fetch(baseUrl + '/items', {

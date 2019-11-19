@@ -6,7 +6,7 @@ export const itemsReducer = (state = {
     itemsLoaded: false,
     onHand: 0,
     par: 0,
-    name: ""
+    currentItem: ""
 }, action) => {
     switch (action.type) {
         case "GET_ITEMS":
@@ -22,10 +22,21 @@ export const itemsReducer = (state = {
                 name: action.name
             }
         case "UPDATE_ITEM_PAR":
-                return {
-                    ...state,
-                    par: action.par
-                }
+            return {
+                ...state,
+                par: action.par
+            }
+
+        case "UPDATE_CURRENT_ITEM":
+            return {
+                ...state,
+                currentItem: action.item
+            }
+        case "UPDATE_ON_HAND":
+            return {
+                ...state,
+                onHand: action.onHand
+            }
         case "LOADING_ITEMS":
             return {
                 ...state,

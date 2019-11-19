@@ -1,30 +1,51 @@
-import React from 'react'
-import { Card, Row, Col } from 'react-bootstrap'
-import OnHandInputForm from './OnHandInputForm'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Card, Row, Col, Form, Button } from 'react-bootstrap'
+import { updateCurrentItem, updateOnHand} from '../actions' 
 
 
-const ItemCard = ({ name, par, onHand }) => {
-    return (
-        <Card>
-            <Card.Body>
-                <Row>
-                    <Col>
-                        <h3>{name}</h3>
-                    </Col>
-                    <Col>
-                        <OnHandInputForm
-                            onHand={onHand}
-                            name={name}
-                            par={par}
+
+
+class ItemCard extends Component {
+
+    handleChange = (e) => {
+        this.props.updateOnHand(e.target.value)
+        this.props.updateCurrentItem(this.props.name)
+        
+    }
+
+    render() {
+        return (
+            <Card>
+                <Card.Body>
+                    <Row>
+                        <Col>
+                            <h2>{this.props.name}</h2>
+                        </Col>
+                        <Col>
+                            <h2>{this.props.onHand}</h2>
+                        </Col>
+                        <Col>
+                            <h6>Par: {this.props.par}</h6>
+                        </Col>
+                        <Col>
+                        <Form id="on-hand" onSubmit={this.handleSubmit}>
+                        <Form.Label>On Hand:</Form.Label>
+                        <Form.Control
+                            as="input"
+                            type="text"
+                            value={this.props.onHand}
+                            onChange={e => this.handleChange(e)}
+                            id={this.props.name}
                         />
-                    </Col>
-                    <Col>
-                        <h6>Par: {par}</h6>
-                    </Col>
-                </Row>
-            </Card.Body>
-        </Card>
-    )
+                        <Button type="submit" variant="primary">Save</Button>
+                    </Form>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
+        )
+    }
 }
 
-export default ItemCard
+export default connect(null, { updateCurrentItem, updateOnHand })(ItemCard)
