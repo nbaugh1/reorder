@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NeededItem from '../components/NeededItem'
 import { Button } from 'react-bootstrap'
-import { addOrder } from '../actions'
+import { addOrder, getItems } from '../actions'
 
 
 class ReviewOrderContainer extends Component {
@@ -12,6 +12,12 @@ class ReviewOrderContainer extends Component {
         this.state = {
             name: "",
             neededItems: []
+        }
+    }
+
+    componentDidMount() {
+        if (!this.props.itemsLoaded) {
+            this.props.getItems();
         }
     }
 
@@ -32,17 +38,16 @@ class ReviewOrderContainer extends Component {
     }
 
     render() {
-
-        const listItems = this.props.neededItems.map((item, i) => (
+        const neededItems = this.props.items.map((item, i) => (
             <NeededItem
-                name={Object.keys(item)}
-                amount={Object.values(item)}
+                name={item.name}
+                amount={item.amount_needed}
             />
         ))
 
         return (
             <form id="order-review" onSubmit={ this.handleSubmit }>
-                <h1>{ listItems } </h1>
+                <h1>{ neededItems } </h1>
                 <label htmlFor="order-name">Order Title: </label>
                 <input type="text" name="name" id="order-name" value={ this.state.name } onChange={ this.handleChange } />
                 <Button type="submit">
@@ -54,8 +59,9 @@ class ReviewOrderContainer extends Component {
 }
 const mapStateToProps = store => {
     return {
+        items: store.itemsReducer.items,
         neededItems: store.ordersReducer.neededItems
     }
 }
 
-export default connect(mapStateToProps, { addOrder })(ReviewOrderContainer)
+export default connect(mapStateToProps, { addOrder, getItems })(ReviewOrderContainer)

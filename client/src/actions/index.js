@@ -29,11 +29,11 @@ export const updateItemPar = (par) => {
     }
 }
 
-export const updateCurrentItem = (item) => {
-    return dispatch => {
-        dispatch({ type: "UPDATE_CURRENT_ITEM", item })
-    }
-}
+// export const updateCurrentItem = (item) => {
+//     return dispatch => {
+//         dispatch({ type: "UPDATE_CURRENT_ITEM", item })
+//     }
+// }
 
 export const updateOnHand = (onHand) => {
     return dispatch => {
@@ -58,9 +58,8 @@ export const addItem = (item, history) => {
             })
     }
 }
-export const updateItemOnHand = (item) => {
+export const updateCurrentItem = (item) => {
     return dispatch => {
-        debugger
         return fetch(baseUrl + `/items/${item.id}`, {
             method: "PUT",
             headers: {
@@ -79,7 +78,7 @@ export const updateItemOnHand = (item) => {
 
 export const itemOnHandUpdated = item => {
     return {
-        type: "UPDATING_ITEM_ON_HAND", item
+        type: "UPDATE_CURRENT_ITEM", item
     }
 }
 

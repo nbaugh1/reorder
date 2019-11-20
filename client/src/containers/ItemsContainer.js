@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getItems, updateOnHand, updateCurrentItem } from '../actions/index'
-import { Button, Row } from 'react-bootstrap';
+import { Button, Row, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import { ItemCard } from '../components/ItemCard'
+import ItemCard from '../components/ItemCard'
 
 class ItemsContainer extends Component {
     componentDidMount() {
@@ -17,8 +17,10 @@ class ItemsContainer extends Component {
     }
 
     handleChange = (e) => {
-        this.props.updateOnHand(e.target.value)
-        this.props.updateCurrentItem(this.props.name)
+        debugger
+        // this.props.updateOnHand(e.target.value)
+        // this.props.updateCurrentItem(this.props.name)
+        debugger
     }
 
     handleSubmit = e => {
@@ -33,20 +35,13 @@ class ItemsContainer extends Component {
     render() {
         if (!this.props.loading) {
             const itemCards = this.props.items.map((item, i) => (
-                <div className="container" key={item.id}>
-                    <Row>
-                        <ItemCard
-                            item={item}
-                            onChange={this.handleChange}
-                        />
-                    </Row>
-                </div>
+                <ItemCard key={item.id} item={item} handleChange={this.handleChange} updateCurrentItem={this.props.updateCurrentItem} />
             ))
             return (
-                <div>
-                    <h1> {itemCards} </h1>
+                <Container>
+                    {itemCards}
                     <Link to="/orders/new"><Button variant="secondary" size="lg" block>Review Order</Button></Link>
-                </div>
+                </Container>
             )
         } else {
             return (

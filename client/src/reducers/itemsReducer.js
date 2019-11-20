@@ -6,7 +6,8 @@ export const itemsReducer = (state = {
     itemsLoaded: false,
     onHand: 0,
     par: 0,
-    currentItem: ""
+    currentItem: "",
+    amountNeeded: 0
 }, action) => {
     switch (action.type) {
         case "GET_ITEMS":
