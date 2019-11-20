@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { getItems, updateOnHand, updateCurrentItem } from '../actions/index'
 import { Button, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import ItemCardContainer from './ItemCardContainer';
-
+import { ItemCard } from '../components/ItemCard'
 
 class ItemsContainer extends Component {
     componentDidMount() {
@@ -15,14 +14,11 @@ class ItemsContainer extends Component {
 
     handleSubmitOrder = e => {
         e.preventDefault();
-
-
     }
 
     handleChange = (e) => {
         this.props.updateOnHand(e.target.value)
         this.props.updateCurrentItem(this.props.name)
-
     }
 
     handleSubmit = e => {
@@ -31,18 +27,18 @@ class ItemsContainer extends Component {
         this.props.updateAmountNeeded({
             amountNeeded: needed
         })
-
         this.props.updateOrder({ [this.props.name]: needed })
-
     }
 
     render() {
-        
         if (!this.props.loading) {
             const itemCards = this.props.items.map((item, i) => (
                 <div className="container" key={item.id}>
                     <Row>
-                        <ItemCardContainer item={item} />
+                        <ItemCard
+                            item={item}
+                            onChange={this.handleChange}
+                        />
                     </Row>
                 </div>
             ))
@@ -62,7 +58,6 @@ class ItemsContainer extends Component {
     }
 }
 
-
 const mapStateToProps = store => {
     return {
         neededItems: store.ordersReducer.neededItems,
@@ -72,6 +67,5 @@ const mapStateToProps = store => {
         currentItem: store.itemsReducer.currentItem
     }
 }
-
 
 export default connect(mapStateToProps, { getItems, updateOnHand, updateCurrentItem })(ItemsContainer);
