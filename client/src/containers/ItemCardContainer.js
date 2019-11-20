@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Row, Col, Form, Button } from 'react-bootstrap'
-import { updateCurrentItem, updateOnHand, updateOrder } from '../actions'
+import { updateCurrentItem, updateItemOnHand, updateOrder } from '../actions'
 import { ItemCard } from '../components/ItemCard'
 
 class ItemCardContainer extends Component {
@@ -19,7 +19,7 @@ class ItemCardContainer extends Component {
         //     [name]: value
         // })
         this.props.updateCurrentItem(this.props.item.name)
-        this.props.updateOnHand(value)
+        this.props.updateItemOnHand(this.props.item)
         debugger
        
     }
@@ -27,7 +27,7 @@ class ItemCardContainer extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.updateCurrentItem(this.props.item.name)
-        this.props.updateOnHand(this.props.onHand)
+        this.props.updateItemOnHand(this.props.onHand)
     }
 
     render() {
@@ -60,4 +60,4 @@ const mapStateToProps = store => {
     }
 }
 
-export default connect(null, { updateCurrentItem, updateOnHand, updateOrder })(ItemCardContainer)
+export default connect(null, { updateCurrentItem, updateItemOnHand, updateOrder })(ItemCardContainer)

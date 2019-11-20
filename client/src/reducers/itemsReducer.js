@@ -37,6 +37,11 @@ export const itemsReducer = (state = {
                 ...state,
                 onHand: action.onHand
             }
+        // case "UPDATING_ITEM_ON_HAND":
+        //     return {
+        //         ...state,
+        //         onHand: action.onHand
+        //     }
         case "LOADING_ITEMS":
             return {
                 ...state,

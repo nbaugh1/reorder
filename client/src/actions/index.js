@@ -60,7 +60,8 @@ export const addItem = (item, history) => {
 }
 export const updateItemOnHand = (item) => {
     return dispatch => {
-        return fetch(baseUrl + `/items/{item.id}`, {
+        debugger
+        return fetch(baseUrl + `/items/${item.id}`, {
             method: "PUT",
             headers: {
                 'Accept': 'application/json',
@@ -70,9 +71,15 @@ export const updateItemOnHand = (item) => {
         })
             .then(resp => resp.json())
             .then(item => {
-                dispatch({ type: "UPDATE_ON_HAND", item })
+                dispatch(itemOnHandUpdated(item))
                 // history.push('/items')
         })
+    }
+}
+
+export const itemOnHandUpdated = item => {
+    return {
+        type: "UPDATING_ITEM_ON_HAND", item
     }
 }
 
