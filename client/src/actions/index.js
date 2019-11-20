@@ -58,6 +58,23 @@ export const addItem = (item, history) => {
             })
     }
 }
+export const updateItemOnHand = (item) => {
+    return dispatch => {
+        return fetch(baseUrl + `/items/{item.id}`, {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ item })
+        })
+            .then(resp => resp.json())
+            .then(item => {
+                dispatch({ type: "UPDATE_ON_HAND", item })
+                // history.push('/items')
+        })
+    }
+}
 
 export const getOrders = () => {
     return dispatch => {

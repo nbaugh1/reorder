@@ -1,51 +1,36 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Card, Row, Col, Form, Button } from 'react-bootstrap'
-import { updateCurrentItem, updateOnHand} from '../actions' 
+import React from 'react'
+import { Card, Col, Row, Form, Button } from 'react-bootstrap'
 
 
-
-
-class ItemCard extends Component {
-
-    handleChange = (e) => {
-        this.props.updateOnHand(e.target.value)
-        this.props.updateCurrentItem(this.props.name)
-        
-    }
-
-    render() {
-        return (
-            <Card>
+export const ItemCard = (props) => {
+    return (
+    <Card id={props.id}>
                 <Card.Body>
                     <Row>
                         <Col>
-                            <h2>{this.props.name}</h2>
+                            <h2>{props.item.name}</h2>
                         </Col>
                         <Col>
-                            <h2>{this.props.onHand}</h2>
+                            <h2>Par: {props.item.par}</h2>
                         </Col>
                         <Col>
-                            <h6>Par: {this.props.par}</h6>
+                            <Form id="on-hand" onSubmit={e => props.handleSubmit(e)}>
+                                <Form.Label>On Hand:</Form.Label>
+                                <Form.Control
+                                    as="input"
+                                    type="text"
+                                    value={props.item.onHand}
+                                    onChange={e => props.onChange(e)}
+                                    id={props.item.id}
+                                    name="onHand"
+                                />
+                            </Form>
                         </Col>
                         <Col>
-                        <Form id="on-hand" onSubmit={this.handleSubmit}>
-                        <Form.Label>On Hand:</Form.Label>
-                        <Form.Control
-                            as="input"
-                            type="text"
-                            value={this.props.onHand}
-                            onChange={e => this.handleChange(e)}
-                            id={this.props.name}
-                        />
-                        <Button type="submit" variant="primary">Save</Button>
-                    </Form>
+                            <h2>Amount Needed: {props.amountNeeded}</h2>
                         </Col>
                     </Row>
                 </Card.Body>
             </Card>
-        )
-    }
+    )
 }
-
-export default connect(null, { updateCurrentItem, updateOnHand })(ItemCard)

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBarContainer from './containers/NavBarContainer';
 import Home from './components/Home';
-import NewItemFormContainer from './containers/NewItemFormContainer';
-import ItemsListContainer from './containers/ItemsListContainer';
+import NewItemContainer from './containers/NewItemContainer';
+import ItemsContainer from './containers/ItemsContainer';
 import ReviewOrderContainer from './containers/ReviewOrderContainer'
 class App extends Component {
 
@@ -17,8 +17,8 @@ class App extends Component {
           <br />
           <Switch>
             <Route exact path="/" component={ Home } />
-            <Route exact path="/items/new" component={ NewItemFormContainer } />
-            <Route exact path="/items" component={ ItemsListContainer } />
+            <Route exact path="/items/new" component={ NewItemContainer } />
+            <Route exact path="/items" component={ ItemsContainer } />
             <Route exact path="/orders/new" component={ ReviewOrderContainer } />
           </Switch>
         </div>
