@@ -16,13 +16,6 @@ class ItemsContainer extends Component {
         e.preventDefault();
     }
 
-    handleChange = (e) => {
-        debugger
-        // this.props.updateOnHand(e.target.value)
-        // this.props.updateCurrentItem(this.props.name)
-        debugger
-    }
-
     handleSubmit = e => {
         e.preventDefault();
         const needed = this.props.par - this.props.onHand
@@ -35,11 +28,12 @@ class ItemsContainer extends Component {
     render() {
         if (!this.props.loading) {
             const itemCards = this.props.items.map((item, i) => (
-                <ItemCard key={item.id} item={item} handleChange={this.handleChange} updateCurrentItem={this.props.updateCurrentItem} />
+                <ItemCard key={item.id} item={item} updateCurrentItem={this.props.updateCurrentItem} />
             ))
             return (
                 <Container>
                     {itemCards}
+                    <br />
                     <Link to="/orders/new"><Button variant="secondary" size="lg" block>Review Order</Button></Link>
                 </Container>
             )

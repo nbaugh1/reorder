@@ -1,6 +1,4 @@
-
-
-export const itemsReducer = (state = {
+const initialState = {
     items: [],
     loading: false,
     itemsLoaded: false,
@@ -8,7 +6,9 @@ export const itemsReducer = (state = {
     par: 0,
     currentItem: "",
     amountNeeded: 0
-}, action) => {
+}
+
+export const itemsReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_ITEMS":
             return {

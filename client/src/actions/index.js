@@ -95,8 +95,6 @@ export const getOrders = () => {
 
 export const addOrder = (order, history) => {
     return dispatch => {
-        console.log("c")
-        debugger
         return fetch(baseUrl + '/orders', {
 
             method: "POST",
@@ -110,7 +108,6 @@ export const addOrder = (order, history) => {
             .then(order => {
                 dispatch({ type: "ADD_ORDER", order })
                 history.push('/')
-                console.log("d")
             })
             
     }

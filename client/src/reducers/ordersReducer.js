@@ -1,5 +1,4 @@
-
-export const ordersReducer = (state ={
+const initialState = {
     orders: [],
     items: [],
     neededItems: [],
@@ -8,7 +7,10 @@ export const ordersReducer = (state ={
     currentOrder: null,
     itemsLoaded: false,
     currentItem: null
-}, action) => {
+}
+
+
+export const ordersReducer = (state = initialState, action) => {
     switch(action.type) {
         case "UPDATE_ORDER":
             return {

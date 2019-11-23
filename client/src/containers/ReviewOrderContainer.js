@@ -22,17 +22,17 @@ class ReviewOrderContainer extends Component {
 
     handleChange = e => {
         const { name, value } = e.target;
-        
+
         this.setState({
             [name]: value
         })
     }
 
     handleSubmit = e => {
-        
+
         e.preventDefault();
-        const items = this.props.items.map( item => `${ item.name } ${ item.amount_needed }` )
-        const order = { name: e.target.value, neededItems: items }
+        const items = this.props.items.map(item => `${item.name} ${item.amount_needed}`)
+        const order = { name: e.target.name.value, neededItems: items }
         this.props.addOrder(order, this.props.history)
 
     }

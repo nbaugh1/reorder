@@ -8,16 +8,15 @@ class OrderHistory extends Component {
             this.props.getOrders();
         }
     }
-    
+
     render() {
         debugger
         return (
-            <div>
-                <h6>TEST</h6>
-            </div>
+            <div><h6>test</h6></div>
         )
     }
 }
+
 
 const mapStateToProps = store => {
     return {
