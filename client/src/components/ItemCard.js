@@ -12,7 +12,6 @@ class ItemCard extends Component {
     }
 
     handleChange = (e) => {
-        
         const { name, value } = e.target
         this.setState({
             [name]: value,
@@ -37,7 +36,6 @@ class ItemCard extends Component {
     }
     
     render(){
-        
         const {
             id,
             name,

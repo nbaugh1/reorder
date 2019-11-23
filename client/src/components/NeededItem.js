@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 
-class NeededItem extends Component {
-    
-    render() {
+const NeededItem = () => {
         return (
             <div>
                 <Row>
@@ -16,6 +14,5 @@ class NeededItem extends Component {
                 </Row>
             </div>
         )
-    }
 }
 export default NeededItem
