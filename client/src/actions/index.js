@@ -96,13 +96,15 @@ export const getOrders = () => {
 export const addOrder = (order, history) => {
     return dispatch => {
         console.log("c")
+        debugger
         return fetch(baseUrl + '/orders', {
+
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ order })
+            body: JSON.stringify( {order} )
         })
             .then(resp => resp.json())
             .then(order => {

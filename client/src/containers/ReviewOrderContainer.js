@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NeededItem from '../components/NeededItem'
-import { Button } from 'react-bootstrap'
+import { Button, Form, Row } from 'react-bootstrap'
 import { addOrder, getItems } from '../actions'
 
 
@@ -10,8 +10,7 @@ class ReviewOrderContainer extends Component {
         super(props)
 
         this.state = {
-            name: "",
-            neededItems: []
+            name: ""
         }
     }
 
@@ -23,37 +22,44 @@ class ReviewOrderContainer extends Component {
 
     handleChange = e => {
         const { name, value } = e.target;
+        
         this.setState({
             [name]: value
         })
     }
 
     handleSubmit = e => {
+        
         e.preventDefault();
-        this.setState({ neededItems: this.state.neededItems })
-        console.log("a")
-        this.props.addOrder(this.state, this.props.history)
-        console.log("b")
+        const items = this.props.items.map( item => `${ item.name } ${ item.amount_needed }` )
+        const order = { name: e.target.value, neededItems: items }
+        this.props.addOrder(order, this.props.history)
 
     }
 
     render() {
-        const neededItems = this.props.items.map((item, i) => (
-            <NeededItem
-                name={item.name}
-                amount={item.amount_needed}
-            />
-        ))
-
+        const neededItems = this.props.items.filter(item => item.amount_needed)
+        const orderItems = neededItems.map(item => (<NeededItem item={item} key={item.id} />))
         return (
-            <form id="order-review" onSubmit={ this.handleSubmit }>
-                <h1>{ neededItems } </h1>
-                <label htmlFor="order-name">Order Title: </label>
-                <input type="text" name="name" id="order-name" value={ this.state.name } onChange={ this.handleChange } />
-                <Button type="submit">
-                    Save
-                </Button>
-            </form>
+            <div>
+                <h4>{orderItems}</h4>
+                <Row>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Label htmlFor="order-name">Order Title: </Form.Label>
+                        <Form.Control
+                            as="input"
+                            name="name"
+                            type="text"
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <Button type="submit">
+                            Save
+                        </Button>
+                    </Form>
+                </Row>
+            </div>
         )
     }
 }

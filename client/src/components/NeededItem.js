@@ -1,17 +1,18 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 
-const NeededItem = () => {
+const NeededItem = (props) => {
         return (
             <div>
                 <Row>
                     <Col>
-                        <h1>{ this.props.name }</h1>
+                        <h1>{ props.item.name }</h1>
                     </Col>
                     <Col>
-                        <h1> { this.props.amount }</h1>
+                        <h1> { props.item.amount_needed }</h1>
                     </Col>
                 </Row>
+                
             </div>
         )
 }

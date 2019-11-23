@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_020510) do
     t.text "delivery_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "neededItems"
+    t.text "neededItems", default: [], array: true
   end
 
 end

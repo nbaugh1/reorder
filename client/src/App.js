@@ -5,8 +5,10 @@ import Home from './components/Home';
 import NewItemContainer from './containers/NewItemContainer';
 import ItemsContainer from './containers/ItemsContainer';
 import ReviewOrderContainer from './containers/ReviewOrderContainer'
-class App extends Component {
+import OrderHistory from './components/OrderHistory'
 
+
+class App extends Component {
   render() {
     return (
       <Router>
@@ -20,6 +22,8 @@ class App extends Component {
             <Route exact path="/items/new" component={ NewItemContainer } />
             <Route exact path="/items" component={ ItemsContainer } />
             <Route exact path="/orders/new" component={ ReviewOrderContainer } />
+            <Route exact path="/orders" component={ OrderHistory } />
+
           </Switch>
         </div>
       </Router>
