@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-class OrderHistory extends Component {
+class OrderHistoryContainer extends Component {
     
     componentDidMount() {
         if (!this.props.itemsLoaded) {
@@ -54,4 +54,4 @@ const mapStateToProps = store => {
     }
 }
 
-export default connect(mapStateToProps, { getOrders })(OrderHistory)
+export default connect(mapStateToProps, { getOrders })(OrderHistoryContainer)
