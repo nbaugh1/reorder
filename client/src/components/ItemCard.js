@@ -33,7 +33,6 @@ class ItemCard extends Component {
         })
         this.props.updateCurrentItem(updatedItem, this.props.history)
     }
-
     
     render(){
         const {
@@ -41,7 +40,7 @@ class ItemCard extends Component {
             name,
             par
         } = this.props.item
-
+        
         return (
                 <Card>
                     <Row>

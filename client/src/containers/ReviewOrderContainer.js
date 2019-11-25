@@ -8,7 +8,6 @@ import { addOrder, getItems, clearItemCounts } from '../actions'
 class ReviewOrderContainer extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             name: ""
         }
@@ -16,32 +15,27 @@ class ReviewOrderContainer extends Component {
 
     componentDidMount() {
         this.props.getItems();
-
-        // if (!this.props.itemsLoaded) {
-            
-        // }
     }
 
     handleChange = e => {
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
     }
 
     handleSubmit = e => {
-
         e.preventDefault();
-        const items = this.props.items.map(item => `${item.name}: ${item.amount_needed}`)
+        const items = this.props.items.map(item => `${item.name} ${item.amount_needed}`)
         const order = { name: e.target.name.value, neededItems: items }
         this.props.addOrder(order, this.props.history)
-        
     }
 
     render() {
         const neededItems = this.props.items.filter(item => item.amount_needed)
-        const orderItems = neededItems.map(item => (<NeededItem item={item} key={item.id} />))
+        const orderItems = neededItems.map(item => (
+            <NeededItem item={item} key={item.id} />
+        ))
         return (
             <div>
                 <h4>{orderItems}</h4>

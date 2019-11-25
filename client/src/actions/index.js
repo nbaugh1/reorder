@@ -19,19 +19,19 @@ export const getItems = () => {
 
 export const updateItemName = (name) => {
     return dispatch => {
-        dispatch({ type: "UPDATE_ITEM_NAME", name})
+        dispatch({ type: "UPDATE_ITEM_NAME", name })
     }
 }
 
 export const updateItemPar = (par) => {
     return dispatch => {
-        dispatch({ type: "UPDATE_ITEM_PAR", par})
+        dispatch({ type: "UPDATE_ITEM_PAR", par })
     }
 }
 
 export const updateOnHand = (onHand) => {
     return dispatch => {
-        dispatch({ type: "UPDATE_ON_HAND", onHand})
+        dispatch({ type: "UPDATE_ON_HAND", onHand })
     }
 }
 
@@ -65,7 +65,7 @@ export const updateCurrentItem = (item) => {
             .then(resp => resp.json())
             .then(item => {
                 dispatch(itemOnHandUpdated(item))
-        })
+            })
     }
 }
 
@@ -88,12 +88,12 @@ export const getOrders = () => {
 
 export const getOrder = id => {
     return dispatch => {
-      dispatch({ type: "LOADING_ORDER" });
-      return fetch(baseUrl + '/orders/' + id)
-        .then(resp => resp.json())
-        .then( order => dispatch({ type: "GET_ORDER", order }))
+        dispatch({ type: "LOADING_ORDER" });
+        return fetch(baseUrl + '/orders/' + id)
+            .then(resp => resp.json())
+            .then(order => dispatch({ type: "GET_ORDER", order }))
     }
-  }
+}
 
 export const addOrder = (order, history) => {
     return dispatch => {
@@ -103,20 +103,19 @@ export const addOrder = (order, history) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify( {order} )
+            body: JSON.stringify({ order })
         })
             .then(resp => resp.json())
             .then(order => {
                 dispatch({ type: "ADD_ORDER", order })
                 history.push('/orders')
             })
-            
     }
 
 }
 
 export const clearItemCounts = (clearedItems) => {
     return dispatch => {
-        return dispatch({ type: "CLEAR_ITEM_COUNTS", clearedItems})
+        return dispatch({ type: "CLEAR_ITEM_COUNTS", clearedItems })
     }
 }
