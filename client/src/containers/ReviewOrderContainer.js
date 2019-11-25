@@ -15,9 +15,11 @@ class ReviewOrderContainer extends Component {
     }
 
     componentDidMount() {
-        if (!this.props.itemsLoaded) {
-            this.props.getItems();
-        }
+        this.props.getItems();
+
+        // if (!this.props.itemsLoaded) {
+            
+        // }
     }
 
     handleChange = e => {

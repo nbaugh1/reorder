@@ -28,11 +28,6 @@ class ItemCard extends Component {
             amount_needed: this.props.item.par - this.state.onHand,
             id: this.props.item.id
         }
-        // const resetItem = {
-        //     on_hand: 0,
-        //     amount_needed: 0
-        // }
-        
         this.setState({
             amountNeeded: updatedItem.amount_needed
         })

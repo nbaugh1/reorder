@@ -4,25 +4,25 @@ import { getOrder } from '../actions'
 
 export class OrderShow extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         const id = this.props.match.params.id
         this.props.getOrder(id)
     }
 
     render() {
-        debugger
-        if (!this.props.loading && this.props.currentOrder){
+        if (!this.props.loading && this.props.currentOrder) {
             const items = this.props.currentOrder.neededItems
-            return(
-                <h1>{items.join(', ')}</h1>
-            ) 
-            } else {
-        return(
-            <div>Loading...</div>
-        )}
-        
-      }
+            return (
+                <h1>{items.join('; ')}</h1>
+            )
+        } else {
+            return (
+                <div><h1>Loading...</h1></div>
+            )
+        }
+
     }
+}
 
 const mapStateToProps = store => {
     return {
