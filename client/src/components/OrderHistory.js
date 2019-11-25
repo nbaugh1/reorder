@@ -5,6 +5,7 @@ import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 class OrderHistory extends Component {
+    
     componentDidMount() {
         if (!this.props.itemsLoaded) {
             this.props.getOrders();

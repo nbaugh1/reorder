@@ -5,7 +5,8 @@ const initialState = {
     onHand: 0,
     par: 0,
     currentItem: "",
-    amountNeeded: 0
+    amountNeeded: 0,
+    saved: false
 }
 
 export const itemsReducer = (state = initialState, action) => {
@@ -36,18 +37,15 @@ export const itemsReducer = (state = initialState, action) => {
         case "UPDATE_CURRENT_ITEM":
             return {
                 ...state,
-                currentItem: action.item
+                currentItem: action.item,
+                saved: true
             }
         case "UPDATE_ON_HAND":
             return {
                 ...state,
                 onHand: action.onHand
             }
-        // case "UPDATING_ITEM_ON_HAND":
-        //     return {
-        //         ...state,
-        //         onHand: action.onHand
-        //     }
+        
         case "LOADING_ITEMS":
             return {
                 ...state,

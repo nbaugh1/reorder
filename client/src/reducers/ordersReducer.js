@@ -6,18 +6,22 @@ const initialState = {
     ordersLoaded: false,
     currentOrder: null,
     itemsLoaded: false,
-    currentItem: null
 }
 
 
 export const ordersReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case "UPDATE_ORDER":
             return {
                 ...state,
                 neededItems: [...state.neededItems, action.item]
             }
-
+        case "GET_ORDER":
+            return {
+                ...state,
+                loading: false,
+                currentOrder: action.order
+            }
         case "GET_ORDERS":
             return {
                 ...state,
@@ -33,7 +37,7 @@ export const ordersReducer = (state = initialState, action) => {
             }
 
         case "LOADING_ORDERS":
-            return{
+            return {
                 ...state,
                 loading: true
             }

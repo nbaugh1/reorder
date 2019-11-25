@@ -1,15 +1,15 @@
 import React from 'react'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
-const NeededItem = (props) => {
+const NeededItem = ({item}) => {
         return (
             <div>
                 <Row>
                     <Col>
-                        <h1>{ props.item.name }</h1>
+                        <h1>{ item.name }</h1>
                     </Col>
                     <Col>
-                        <h1> { props.item.amount_needed }</h1>
+                        <h1> { item.amount_needed }</h1>
                     </Col>
                 </Row>
                 

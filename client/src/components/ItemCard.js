@@ -28,13 +28,17 @@ class ItemCard extends Component {
             amount_needed: this.props.item.par - this.state.onHand,
             id: this.props.item.id
         }
+        // const resetItem = {
+        //     on_hand: 0,
+        //     amount_needed: 0
+        // }
         
         this.setState({
             amountNeeded: updatedItem.amount_needed
         })
         this.props.updateCurrentItem(updatedItem, this.props.history)
     }
-    
+
     
     render(){
         const {
@@ -48,7 +52,7 @@ class ItemCard extends Component {
                     <Row>
                         <Col>
                             <br />
-                            <h2>{name}</h2>
+                            <h2> {name} </h2>
                         </Col>
                         <Col>
                             <br />

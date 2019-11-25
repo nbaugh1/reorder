@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getItems, updateOnHand, updateCurrentItem } from '../actions/index'
-import { Button, Row, Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import ItemCard from '../components/ItemCard'
 
@@ -16,21 +16,11 @@ class ItemsContainer extends Component {
         e.preventDefault();
     }
 
-    // handleSubmit = e => {
-    //     e.preventDefault();
-    //     const needed = this.props.par - this.props.onHand
-    //     this.props.updateAmountNeeded({
-    //         amountNeeded: needed
-    //     })
-    //     this.props.updateOrder({ [this.props.name]: needed })
-    // }
-
     render() {
         if (!this.props.loading) {
             const itemCards = this.props.items.map((item, i) => (
                 <ItemCard key={item.id} item={item} updateCurrentItem={this.props.updateCurrentItem} />
             ))
-            debugger
             return (
                 <Container>
                     {itemCards.sort()}

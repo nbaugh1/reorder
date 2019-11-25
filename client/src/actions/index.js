@@ -29,12 +29,6 @@ export const updateItemPar = (par) => {
     }
 }
 
-// export const updateCurrentItem = (item) => {
-//     return dispatch => {
-//         dispatch({ type: "UPDATE_CURRENT_ITEM", item })
-//     }
-// }
-
 export const updateOnHand = (onHand) => {
     return dispatch => {
         dispatch({ type: "UPDATE_ON_HAND", onHand})
@@ -71,7 +65,6 @@ export const updateCurrentItem = (item) => {
             .then(resp => resp.json())
             .then(item => {
                 dispatch(itemOnHandUpdated(item))
-                // history.push('/items')
         })
     }
 }
@@ -93,10 +86,18 @@ export const getOrders = () => {
     }
 }
 
+export const getOrder = id => {
+    return dispatch => {
+      dispatch({ type: "LOADING_ORDER" });
+      return fetch(baseUrl + '/orders/' + id)
+        .then(resp => resp.json())
+        .then( order => dispatch({ type: "GET_ORDER", order }))
+    }
+  }
+
 export const addOrder = (order, history) => {
     return dispatch => {
         return fetch(baseUrl + '/orders', {
-
             method: "POST",
             headers: {
                 'Accept': 'application/json',

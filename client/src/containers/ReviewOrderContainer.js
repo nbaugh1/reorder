@@ -31,15 +31,10 @@ class ReviewOrderContainer extends Component {
     handleSubmit = e => {
 
         e.preventDefault();
-        const items = this.props.items.map(item => `${item.name} ${item.amount_needed}`)
+        const items = this.props.items.map(item => `${item.name}: ${item.amount_needed}`)
         const order = { name: e.target.name.value, neededItems: items }
-        const resetItem = {
-            on_hand: 0,
-            amount_needed: 0
-        }
         this.props.addOrder(order, this.props.history)
-        this.props.clearItemCounts(resetItem)
-
+        
     }
 
     render() {
