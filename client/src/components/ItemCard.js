@@ -35,6 +35,7 @@ class ItemCard extends Component {
         this.props.updateCurrentItem(updatedItem, this.props.history)
     }
     
+    
     render(){
         const {
             id,

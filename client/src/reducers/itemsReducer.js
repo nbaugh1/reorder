@@ -27,6 +27,11 @@ export const itemsReducer = (state = initialState, action) => {
                 ...state,
                 par: action.par
             }
+        case "CLEAR_ITEM_COUNTS":
+            return {
+                ...state, 
+                items: action.clearedItems
+            }
 
         case "UPDATE_CURRENT_ITEM":
             return {

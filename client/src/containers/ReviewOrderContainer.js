@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NeededItem from '../components/NeededItem'
 import { Button, Form, Row } from 'react-bootstrap'
-import { addOrder, getItems } from '../actions'
+import { addOrder, getItems, clearItemCounts } from '../actions'
 
 
 class ReviewOrderContainer extends Component {
@@ -33,7 +33,12 @@ class ReviewOrderContainer extends Component {
         e.preventDefault();
         const items = this.props.items.map(item => `${item.name} ${item.amount_needed}`)
         const order = { name: e.target.name.value, neededItems: items }
+        const resetItem = {
+            on_hand: 0,
+            amount_needed: 0
+        }
         this.props.addOrder(order, this.props.history)
+        this.props.clearItemCounts(resetItem)
 
     }
 
@@ -65,9 +70,8 @@ class ReviewOrderContainer extends Component {
 }
 const mapStateToProps = store => {
     return {
-        items: store.itemsReducer.items,
-        neededItems: store.ordersReducer.neededItems
+        items: store.itemsReducer.items
     }
 }
 
-export default connect(mapStateToProps, { addOrder, getItems })(ReviewOrderContainer)
+export default connect(mapStateToProps, { addOrder, getItems, clearItemCounts })(ReviewOrderContainer)

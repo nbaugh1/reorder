@@ -107,9 +107,15 @@ export const addOrder = (order, history) => {
             .then(resp => resp.json())
             .then(order => {
                 dispatch({ type: "ADD_ORDER", order })
-                history.push('/')
+                history.push('/orders')
             })
             
     }
+
 }
 
+export const clearItemCounts = (clearedItems) => {
+    return dispatch => {
+        return dispatch({ type: "CLEAR_ITEM_COUNTS", clearedItems})
+    }
+}
