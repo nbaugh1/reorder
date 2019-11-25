@@ -103,14 +103,12 @@ class OrderHistoryContainer extends Component {
                         <Button type="submit">Search</Button>
                     </Form>
                 </Row>
-                <Table>
+                <h5>Search Results:</h5>
+                <Table bordered hover size="sm">
                 { filteredOrderInfo }
                 </Table>
-
                 <Table bordered hover size="sm">
-
                     <thead>
-
                         <tr>
                             <th>Order No.</th>
                             <th>Name</th>
