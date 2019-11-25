@@ -52,6 +52,7 @@ export const addItem = (item, history) => {
             })
     }
 }
+
 export const updateCurrentItem = (item) => {
     return dispatch => {
         return fetch(baseUrl + `/items/${item.id}`, {
@@ -111,7 +112,6 @@ export const addOrder = (order, history) => {
                 history.push('/orders')
             })
     }
-
 }
 
 export const clearItemCounts = (clearedItems) => {

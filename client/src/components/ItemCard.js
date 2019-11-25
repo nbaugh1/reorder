@@ -46,21 +46,21 @@ class ItemCard extends Component {
                     <Row>
                         <Col>
                             <br />
-                            <h2> {name} </h2>
+                            <h2> { name } </h2>
                         </Col>
                         <Col>
                             <br />
-                            <h2>Par: {par}</h2>
-                        </Col>
+                            <h2>Par: { par }</h2>
+                        </Col> 
                         <Col>
-                            <Form id="on-hand" onSubmit={this.handleSubmit}>
+                            <Form id="on-hand" onSubmit={ this.handleSubmit }>
                                 <Form.Label>On Hand:</Form.Label>
                                 <Form.Control
                                     as="input"
                                     type="number"
-                                    value={this.state.onHand}
-                                    onChange={this.handleChange}
-                                    id={id}
+                                    value={ this.state.onHand }
+                                    onChange={ this.handleChange }
+                                    id={ id }
                                     name="onHand"
                                 />
                                 <br />
@@ -70,7 +70,7 @@ class ItemCard extends Component {
                             <br />
                         </Col>
                         <Col>
-                            <h2>Amount Needed: {this.state.amountNeeded}</h2>
+                            <h2>Amount Needed: { this.state.amountNeeded }</h2>
                         </Col>
                     </Row>
                 </Card>

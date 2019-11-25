@@ -33,7 +33,6 @@ export const itemsReducer = (state = initialState, action) => {
                 ...state, 
                 items: action.clearedItems
             }
-
         case "UPDATE_CURRENT_ITEM":
             return {
                 ...state,
@@ -45,7 +44,6 @@ export const itemsReducer = (state = initialState, action) => {
                 ...state,
                 onHand: action.onHand
             }
-        
         case "LOADING_ITEMS":
             return {
                 ...state,

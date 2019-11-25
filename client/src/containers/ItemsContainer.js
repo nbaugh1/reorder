@@ -23,7 +23,7 @@ class ItemsContainer extends Component {
             ))
             return (
                 <Container>
-                    {itemCards}
+                    { itemCards }
                     <br />
                     <Link to="/orders/new"><Button variant="secondary" size="lg" block>Review Order</Button></Link>
                 </Container>

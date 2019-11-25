@@ -14,10 +14,10 @@ class OrderHistory extends Component {
 
     render() {
         const orderInfo = this.props.orders.map(order => (
-            <tbody key={order.id}>
+            <tbody key={ order.id }>
                 <tr>
-                    <td><Link to={`/orders/${order.id}`}>{order.id}</Link></td>
-                    <td><Link to={`/orders/${order.id}`}>{order.name}</Link></td>
+                    <td><Link to={`/orders/${order.id}`}>{ order.id }</Link></td>
+                    <td><Link to={`/orders/${order.id}`}>{ order.name }</Link></td>
                     <td>{new Date(order.created_at).toLocaleDateString('en-US', {
                         day: 'numeric',
                         month: 'numeric',
@@ -41,7 +41,7 @@ class OrderHistory extends Component {
                         <th>Timestamp</th>
                     </tr>
                 </thead>
-                {orderInfo}
+                { orderInfo }
             </Table>
         )
     }

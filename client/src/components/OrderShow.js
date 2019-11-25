@@ -13,7 +13,7 @@ export class OrderShow extends Component {
         if (!this.props.loading && this.props.currentOrder) {
             const items = this.props.currentOrder.neededItems
             return (
-                <h1>{items.join('; ')}</h1>
+                <h1>{ items.join('; ') }</h1>
             )
         } else {
             return (
