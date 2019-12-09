@@ -42,7 +42,6 @@ class OrderHistoryContainer extends Component {
         this.setState({
             filteredOrders
         })
-        console.log(this.state.filteredOrders)
     }
 
     render() {

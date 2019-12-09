@@ -43,6 +43,7 @@ class ItemCard extends Component {
         
         return (
                 <Card>
+                <Card.Body>
                     <Row>
                         <Col>
                             <br />
@@ -73,6 +74,7 @@ class ItemCard extends Component {
                             <h2>Amount Needed: { this.state.amountNeeded }</h2>
                         </Col>
                     </Row>
+                    </Card.Body>
                 </Card>
         )
     }
