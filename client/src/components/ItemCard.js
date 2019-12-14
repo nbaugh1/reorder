@@ -76,7 +76,7 @@ class ItemCard extends Component {
                 //     </Row>
                 //     </Card.Body>
                 // </Card>
-                <Card>
+                <Card className="item-card">
                     <Card.Body>
                         <ListGroup>
                             <ListGroupItem>Name: { name }</ListGroupItem>
