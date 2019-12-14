@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button, Card, Col, Row } from 'react-bootstrap'
 
 
 const Home = () => {
     return (
-        <div className="card text-center">
-            <div className="card-header">
+        <Row>
+        <Col />
+        <Card className="home-card">
+            <Card.Header>
                 <h1>ReOrder</h1>
-            </div>
+            </Card.Header>
             <div className="card-body">
                 <h5 className="card-title"></h5>
                 <p className="card-text"></p>
@@ -20,7 +22,9 @@ const Home = () => {
             <div className="card-footer">
                 
             </div>
-        </div>
+        </Card>
+        <Col />
+        </Row>
     )
 }
 

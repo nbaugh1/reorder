@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getItems, updateOnHand, updateCurrentItem } from '../actions/index'
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import ItemCard from '../components/ItemCard'
 
@@ -23,7 +23,9 @@ class ItemsContainer extends Component {
             ))
             return (
                 <Container>
+                <CardGroup>
                     { itemCards }
+                    </CardGroup>
                     <br />
                     <Link to="/orders/new"><Button variant="secondary" size="lg" block>Review Order</Button></Link>
                 </Container>

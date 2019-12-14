@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Col, Row, Form, Button } from 'react-bootstrap'
+import { Card, Col, Row, Form, Button, ListGroupItem, ListGroup } from 'react-bootstrap'
 
 
 class ItemCard extends Component {
@@ -42,18 +42,46 @@ class ItemCard extends Component {
         } = this.props.item
         
         return (
-                <Card>
-                <Card.Body>
-                    <Row>
-                        <Col>
-                            <br />
-                            <h2> { name } </h2>
-                        </Col>
-                        <Col>
-                            <br />
-                            <h2>Par: { par }</h2>
-                        </Col> 
-                        <Col>
+                // <Card>
+                // <Card.Body>
+                //     <Row>
+                //         <Col>
+                //             <br />
+                //             <h2> { name } </h2>
+                //         </Col>
+                //         <Col>
+                //             <br />
+                //             <h2>Par: { par }</h2>
+                //         </Col> 
+                //         <Col>
+                //             <Form id="on-hand" onSubmit={ this.handleSubmit }>
+                //                 <Form.Label>On Hand:</Form.Label>
+                //                 <Form.Control
+                //                     as="input"
+                //                     type="number"
+                //                     value={ this.state.onHand }
+                //                     onChange={ this.handleChange }
+                //                     id={ id }
+                //                     name="onHand"
+                //                 />
+                //                 <br />
+                //                 <Button type="submit">Save</Button>
+                                
+                //             </Form>
+                //             <br />
+                //         </Col>
+                //         <Col>
+                //             <h2>Amount Needed: { this.state.amountNeeded }</h2>
+                //         </Col>
+                //     </Row>
+                //     </Card.Body>
+                // </Card>
+                <Card className="item-card">
+                    <Card.Body>
+                        <ListGroup>
+                            <ListGroupItem>Name: { name }</ListGroupItem>
+                            <ListGroupItem><h2>Amount Needed: { this.state.amountNeeded }</h2></ListGroupItem>
+                            <ListGroupItem><h2>Par: { par }</h2></ListGroupItem>
                             <Form id="on-hand" onSubmit={ this.handleSubmit }>
                                 <Form.Label>On Hand:</Form.Label>
                                 <Form.Control
@@ -68,12 +96,7 @@ class ItemCard extends Component {
                                 <Button type="submit">Save</Button>
                                 
                             </Form>
-                            <br />
-                        </Col>
-                        <Col>
-                            <h2>Amount Needed: { this.state.amountNeeded }</h2>
-                        </Col>
-                    </Row>
+                        </ListGroup>
                     </Card.Body>
                 </Card>
         )
@@ -81,3 +104,4 @@ class ItemCard extends Component {
 }
 
 export default ItemCard
+
