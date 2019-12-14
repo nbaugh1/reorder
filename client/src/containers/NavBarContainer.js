@@ -4,9 +4,7 @@ import Nav from '../components/Nav'
  
 const NavBarContainer = () => {
     return(
-        <Container>
             <Nav />
-        </Container>
     )
 }
 
