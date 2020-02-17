@@ -88,7 +88,6 @@ class OrderHistoryContainer extends Component {
 
         return (
             <div>
-
                 <Row>
                     <Form inline="true" onSubmit={this.handleSearch}>
                         <Form.Label>Search:</Form.Label>
