@@ -8,9 +8,8 @@ const Nav = () => {
             <Row>
                 <Col>
                     <Link to='/'><Navbar.Brand>ReOrder</Navbar.Brand></Link>
-                {/* </Col>
-                <Col> */}
-                    <Link to='/'><Button>Home</Button></Link>
+                    <Link to='/items/new'><Button>Add New Item</Button></Link>
+                    <Link to='/orders'><Button>Order History</Button></Link>
                 </Col>
             </Row>
         </Navbar>

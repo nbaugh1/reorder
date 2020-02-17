@@ -22,7 +22,7 @@ class App extends Component {
           <br />
           <br />
           <Switch>
-            <Route exact path="/" component={ Home } />
+            <Route exact path="/" component={ ItemsContainer } />
             <Route exact path="/items/new" component={ NewItemContainer } />
             <Route exact path="/items" component={ ItemsContainer } />
             <Route exact path="/orders/new" component={ ReviewOrderContainer } />

@@ -28,6 +28,7 @@ body, html {
 
 body {
   background-image: url("/images/bg2.jpg");
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,5 +42,9 @@ body {
 
 .item-card {
   min-width: 250px;
+  margin: 5px;
 }
 
+.btn {
+  margin: 0px 4px;
+}
