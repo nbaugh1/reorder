@@ -27,17 +27,19 @@ body, html {
 }
 
 body {
-  background-image: url("/images/bg.png");
+  background-image: url("/images/bg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .home-card {
-  max-width: 500px;
+  min-width: 400px;
   text-align: center;
+  margin: 100px;
 }
 
 .item-card {
   min-width: 250px;
 }
+

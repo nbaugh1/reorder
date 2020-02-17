@@ -5,10 +5,11 @@ import NavBarContainer from './containers/NavBarContainer';
 import Home from './components/Home';
 import NewItemContainer from './containers/NewItemContainer';
 import ItemsContainer from './containers/ItemsContainer';
-import ReviewOrderContainer from './containers/ReviewOrderContainer'
-import OrderHistoryContainer from './containers/OrderHistoryContainer'
-import OrderShow from './components/OrderShow'
-import './style/App.css'
+import ReviewOrderContainer from './containers/ReviewOrderContainer';
+import OrderHistoryContainer from './containers/OrderHistoryContainer';
+import OrderShow from './components/OrderShow';
+import "bootswatch/dist/flatly/bootstrap.min.css";
+import './style/App.css';
 
 class App extends Component {
   render() {
