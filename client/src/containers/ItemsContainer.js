@@ -18,6 +18,7 @@ class ItemsContainer extends Component {
 
     render() {
         if (!this.props.loading) {
+            debugger
             const itemCards = this.props.items.map((item, i) => (
                 <ItemCard key={item.id} item={item} updateCurrentItem={this.props.updateCurrentItem} />
             ))
